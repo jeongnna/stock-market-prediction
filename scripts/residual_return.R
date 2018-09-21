@@ -2,14 +2,14 @@
 
 residual_return <- function(data, market, info=NULL, window=NULL) {
 
+	# Use all observation if window is NULL
+    if (is.null(window))
+        window <- 1:dim(data)[2]
+
+
     # Make sure that window is a sequence
     if (length(window) == 2)
         window <- window[1]:window[2]
-
-
-    # Use all observation if window is NULL
-    if (is.null(window))
-        window <- 1:dim(data)[2]
 
 
     # Create residual matrix
